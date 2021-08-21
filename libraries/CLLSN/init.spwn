@@ -1,0 +1,8 @@
+init = (){
+    for color in [BG,GROUND,GROUND2,LINE] {
+        color.set(0,0,0)
+    }
+    hide_player()
+}
+
+return init

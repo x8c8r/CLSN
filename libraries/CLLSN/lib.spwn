@@ -1,0 +1,5 @@
+let init = import "init.spwn"
+
+return{
+    init: init
+}
