@@ -1,6 +1,7 @@
 ---CLLSN DOCS---
 
 --Rules--
+
 (r) - means something is required
 (default = @datatype) - shows the default datatype the variable will be
 
