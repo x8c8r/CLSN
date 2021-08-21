@@ -1,5 +1,8 @@
 let init = import "init.spwn"
+let kill = import "kill.spwn"
 
 return{
-    init: init
+    init: init,
+    setup_kill: kill.setup_kill,
+    kill: kill.kill
 }

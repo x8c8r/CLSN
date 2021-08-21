@@ -1,8 +1,30 @@
-init = (){
+extract obj_props
+
+init = (length: @number = 0, invis: @group = 1g, lock: @group = 2g, hide: @bool = true, lock: @bool = true){
     for color in [BG,GROUND,GROUND2,LINE] {
         color.set(0,0,0)
     }
-    hide_player()
+
+    if invis == true {
+        invis.alpha(0)
+    }
+
+    if lock == true {
+        lock.lock_to_player(lock_y = false, duration = 600)
+    }
+
+    if hide == true {
+        hide_player()
+    }
+
+    if length > 1 {
+        $.add(obj{
+            OBJ_ID: 5,
+            X: (length - 1)*311.58,
+            Y: 500,
+            GROUPS: invis
+        })
+    }
 }
 
 return init
