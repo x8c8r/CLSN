@@ -2,7 +2,7 @@
 
 --Rules--
 
-(r) - means something is required
+(r) - means something is required, <br>
 (default = @datatype) - shows the default datatype the variable will be
 
 --Functions--
