@@ -1,11 +1,12 @@
 extract obj_props
 
-square = (Xpos: @number, Ypos: @number){
+square = (x_grid: @number, y_grid: @number, Objcol: @array = [0, 0, 0]){
+    1c.set(Objcol[0], Objcol[1], Objcol[2])
     $.add(obj{
         OBJ_ID: 955,
-        X: Xpos,
-        Y: Ypos,
-
+        X: ((x_grid-1)*30)+15,
+        Y: ((y_grid-1)*30)+15,
+        COLOR: 1c,
     })
 }
 
