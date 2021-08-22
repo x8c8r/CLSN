@@ -1,10 +1,16 @@
 let init = import "init.spwn"
 let kill = import "kill.spwn"
 let sprite = import "sprite.spwn"
+let create = import "create_player.spwn"
+let gs = import gamescene
 
-return{
+let invisG = 1g
+let lockG = 2g
+
+return {
     init: init,
     sprite: sprite,
     kill: kill.kill,
-    setup_kill: kill.setup_kill
+    setup_kill: kill.setup_kill,
+    create: create
 }
