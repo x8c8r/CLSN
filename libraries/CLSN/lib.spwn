@@ -3,7 +3,7 @@ let kill = import "kill.spwn"
 let sprite = import "sprite.spwn"
 
 return{
-    init: init.init,
+    init: init,
     sprite: sprite,
     kill: kill.kill,
     setup_kill: kill.setup_kill
