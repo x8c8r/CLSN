@@ -4,7 +4,6 @@ let sprite = import "sprite.spwn"
 
 return{
     init: init,
-    kill: kill.kill,
-    kill: kill.setup_kill,
+    kill: kill,
     sprite: sprite,
 }
