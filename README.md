@@ -8,7 +8,6 @@ Todo: <br>
 - [ ] Ui making
 
 Changelog: <br>
-### 0.1.2
-- Added "Sprite" function(experimental)
-- Renamed "CLLSN" to "CLSN"
-- Learned how to write changelogs
+### 0.1.3
+- Added more functionality to init()
+- Changed sprite functions to use more intuitive grid spaces
