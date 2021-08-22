@@ -25,25 +25,11 @@
 >
 >| # | name | type | default value | description |
 >| - | ---- | ---- | ------------- | ----------- |
->| 1 | `length` | @number | `0` | |
->| 2 | `invis` | @group | `1g` | |
->| 3 | `lock` | @group | `2g` | |
->| 4 | `hide` | @bool | `true` | |
->| 5 | `lock` | @bool | `true` | |
->
-
-## **kill**:
-
-> **Value:** 
->```spwn
->(spikeGroup: @group) { /* code omitted */ }
->``` 
->**Type:** `@macro` 
->## Arguments:
->
->| # | name | type | default value | description |
->| - | ---- | ---- | ------------- | ----------- |
->| 1 | **`spikeGroup`** | @group | | |
+>| 1 | `length` | @number | `0` | The length of the level in seconds |
+>| 2 | `invis` | @group | `1g` | The group for invisible objects |
+>| 3 | `lock` | @group | `2g` | The group to lock objects to the player |
+>| 4 | `hide` | @bool | `true` | Whether to hide the player on level start or not |
+>| 5 | `lock` | @bool | `true` | Whether to lock objects to the player or not |
 >
 
 ## **setup\_kill**:
@@ -57,6 +43,20 @@
 >
 >| # | name | type | default value | description |
 >| - | ---- | ---- | ------------- | ----------- |
->| 1 | **`spikeGroup`** | @group | | |
->| 2 | `controls` | @bool | `true` | |
+>| 1 | **`spikeGroup`** | @group | | The group of the spike that kills the player |
+>| 2 | `controls` | @bool | `true` | Whether you are using 2 player controls or not |
+>
+
+## **kill**:
+
+> **Value:** 
+>```spwn
+>(spikeGroup: @group) { /* code omitted */ }
+>``` 
+>**Type:** `@macro` 
+>## Arguments:
+>
+>| # | name | type | default value | description |
+>| - | ---- | ---- | ------------- | ----------- |
+>| 1 | **`spikeGroup`** | @group | | The same spike group as setup_kill |
 >
