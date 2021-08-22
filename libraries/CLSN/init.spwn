@@ -1,18 +1,14 @@
 extract obj_props
 
-init = (length: @number = 0, invis: @group = 1g, lock: @group = 2g, hide: @bool = true, lock: @bool = true){
-    for color in [BG,GROUND,GROUND2,LINE] {
-        color.set(0,0,0)
-    }
+init = (length: @number, hide: @bool = true, BG_RGB: @array = [0, 0, 0], GROUND_RGB: @array = [0, 0, 0], GROUND2_RGB: @array = [0, 0, 0], LINE_RGB: @array = [0, 0, 0]){
+    BG.set(BG_RGB[0],BG_RGB[1],BG_RGB[2])
+    GROUND.set(GROUND_RGB[0],GROUND_RGB[1],GROUND_RGB[2])
+    GROUND2.set(GROUND2_RGB[0],GROUND2_RGB[1],GROUND2_RGB[2])
+    LINE.set(LINE_RGB[0],LINE_RGB[1],LINE_RGB[2])
 
-    if invis == true {
-        invis.alpha(0)
-    }
-
-    if lock == true {
-        lock.lock_to_player(lock_y = false, duration = 600)
-    }
-
+    1g.alpha(0)
+    2g.lock_to_player(lock_y = false, duration = 600)
+    
     if hide == true {
         hide_player()
     }
@@ -22,9 +18,10 @@ init = (length: @number = 0, invis: @group = 1g, lock: @group = 2g, hide: @bool 
             OBJ_ID: 5,
             X: (length - 1)*311.58,
             Y: 500,
-            GROUPS: invis
+            GROUPS: 1g
         })
-    }
+    }   
 }
 
 return init
+

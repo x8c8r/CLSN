@@ -2,8 +2,12 @@ let init = import "init.spwn"
 let kill = import "kill.spwn"
 let sprite = import "sprite.spwn"
 
-return{
+let invisG = 1g
+let lockG = 2g
+
+return {
     init: init,
-    kill: kill,
     sprite: sprite,
+    kill: kill.kill,
+    setup_kill: kill.setup_kill
 }
