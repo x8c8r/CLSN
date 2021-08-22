@@ -1,62 +1,82 @@
-# Documentation for `CLSN` 
+# Documentation for `C:\Users\acute\Downloads\CLSN-main\libraries\CLSN` 
+_Generated using `spwn doc [file name]`_
 ## Info:
 
-- Uses 1 groups
+- Uses 2 groups
 - Uses 0 colors
 - Uses 0 block IDs
 - Uses 1 item IDs
 
 - Adds 0 objects
 # Exports:
- **Value:** 
-```spwn
-{init: (length: @number = 0, invis: @group = 1g, lock: @group = 2g, hide: @bool = true, lock: @bool = true) { /* code omitted */ },setup_kill: (spikeGroup: @group, controls: @bool = true) { /* code omitted */ },kill: (spikeGroup: @group) { /* code omitted */ }}
-``` 
-**Type:** `@dictionary` 
+ **Type:** `@dictionary` 
+
+## Macros:
 
 ## **init**:
 
 > **Value:** 
 >```spwn
->(length: @number = 0, invis: @group = 1g, lock: @group = 2g, hide: @bool = true, lock: @bool = true) { /* code omitted */ }
+>(length: @number, hide: @bool = true, BG_RGB: @array = [0,0,0], GROUND_RGB: @array = [0,0,0], GROUND2_RGB: @array = [0,0,0], LINE_RGB: @array = [0,0,0]) { /* code omitted */ }
 >``` 
 >**Type:** `@macro` 
 >## Arguments:
 >
 >| # | name | type | default value | description |
 >| - | ---- | ---- | ------------- | ----------- |
->| 1 | `length` | @number | `0` | |
->| 2 | `invis` | @group | `1g` | |
->| 3 | `lock` | @group | `2g` | |
->| 4 | `hide` | @bool | `true` | |
->| 5 | `lock` | @bool | `true` | |
+>| 1 | **`length`** | @number | | |
+>| 2 | `hide` | @bool | `true` | |
+>| 3 | `BG_RGB` | @array | `[0,0,0]` | |
+>| 4 | `GROUND_RGB` | @array | `[0,0,0]` | |
+>| 5 | `GROUND2_RGB` | @array | `[0,0,0]` | |
+>| 6 | `LINE_RGB` | @array | `[0,0,0]` | |
 >
 
 ## **kill**:
 
 > **Value:** 
 >```spwn
->(spikeGroup: @group) { /* code omitted */ }
+>(spikeG: @group = ?g) { /* code omitted */ }
 >``` 
 >**Type:** `@macro` 
 >## Arguments:
 >
 >| # | name | type | default value | description |
 >| - | ---- | ---- | ------------- | ----------- |
->| 1 | **`spikeGroup`** | @group | | |
+>| 1 | `spikeG` | @group | `?g` | |
 >
 
 ## **setup\_kill**:
 
 > **Value:** 
 >```spwn
->(spikeGroup: @group, controls: @bool = true) { /* code omitted */ }
+>() { /* code omitted */ }
 >``` 
 >**Type:** `@macro` 
->## Arguments:
 >
->| # | name | type | default value | description |
->| - | ---- | ---- | ------------- | ----------- |
->| 1 | **`spikeGroup`** | @group | | |
->| 2 | `controls` | @bool | `true` | |
+## Other values:
+
+## **sprite**:
+
+> **Value:** 
+>```spwn
+>{square: (x_grid: @number, y_grid: @number, Objcol: @array = [0,0,0]) { /* code omitted */ }}
+>``` 
+>**Type:** `@dictionary` 
+>
+>## **square**:
+>
+>> **Value:** 
+>>```spwn
+>>(x_grid: @number, y_grid: @number, Objcol: @array = [0,0,0]) { /* code omitted */ }
+>>``` 
+>>**Type:** `@macro` 
+>>## Arguments:
+>>
+>>| # | name | type | default value | description |
+>>| - | ---- | ---- | ------------- | ----------- |
+>>| 1 | **`x_grid`** | @number | | |
+>>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `Objcol` | @array | `[0,0,0]` | |
+>>
 >
