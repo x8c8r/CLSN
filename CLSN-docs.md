@@ -36,14 +36,10 @@ _Generated using `spwn doc [file name]`_
 
 > **Value:** 
 >```spwn
->(spikeG: @group = ?g) { /* code omitted */ }
+>() { /* code omitted */ }
 >``` 
 >**Type:** `@macro` 
->## Arguments:
->
->| # | name | type | default value | description |
->| - | ---- | ---- | ------------- | ----------- |
->| 1 | `spikeG` | @group | `?g` | |
+>`setup\_kill needs to be called before kill`
 >
 
 ## **setup\_kill**:
