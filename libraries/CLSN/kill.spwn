@@ -1,0 +1,23 @@
+extract obj_props
+
+setup_kill = (spikeGroup: @group, controls: @bool = true){
+    let y_pos = 55
+    if !controls {
+        y_pos = 15
+    }
+    $.add(obj{
+        OBJ_ID: 8,
+        X: 120,
+        Y: y_pos,
+        GROUPS:[1g, 2g, spikeGroup]
+    })
+}
+
+kill = (spikeGroup: @group){
+    -> spikeGroup.move(120, 0, 0.1)
+}
+
+return {
+    setup_kill,
+    kill
+}
