@@ -1,4 +1,4 @@
-# Documentation for `C:\Users\acute\Downloads\CLSN-main\libraries\CLSN` 
+# Documentation for `CLSN` 
 _Generated using `spwn doc [file name]`_
 ## Info:
 
