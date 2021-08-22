@@ -32,6 +32,15 @@ _Generated using `spwn doc [file name]`_
 >| 6 | `LINE_RGB` | @array | `[0,0,0]` | |
 >
 
+## **setup\_kill**:
+
+> **Value:** 
+>```spwn
+>() { /* code omitted */ }
+>``` 
+>**Type:** `@macro` 
+>
+
 ## **kill**:
 
 > **Value:** 
@@ -40,15 +49,6 @@ _Generated using `spwn doc [file name]`_
 >``` 
 >**Type:** `@macro` 
 >`setup\_kill needs to be called before kill`
->
-
-## **setup\_kill**:
-
-> **Value:** 
->```spwn
->() { /* code omitted */ }
->``` 
->**Type:** `@macro` 
 >
 ## Other values:
 
