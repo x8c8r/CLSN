@@ -8,6 +8,6 @@ Todo: <br>
 - [ ] Ui making
 
 Changelog: <br>
-### 0.1.4
+### 0.1.4.alpha
 - Added "Create" Class with player functions (one for now)
 - Tweaked functions to be less input heavy and easier to use
