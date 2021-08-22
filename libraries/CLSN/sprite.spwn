@@ -1,0 +1,14 @@
+extract obj_props
+
+square = (Xpos: @number, Ypos: @number){
+    $.add(obj{
+        OBJ_ID: 955,
+        X: Xpos,
+        Y: Ypos,
+
+    })
+}
+
+return{
+    square
+}
