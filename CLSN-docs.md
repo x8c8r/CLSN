@@ -48,7 +48,7 @@ _Generated using `spwn doc [file name]`_
 >() { /* code omitted */ }
 >``` 
 >**Type:** `@macro` 
->`setup\_kill needs to be called before kill`
+>`setup_kill needs to be called before kill`
 >
 ## Other values:
 
