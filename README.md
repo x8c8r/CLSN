@@ -11,3 +11,7 @@ Changelog: <br>
 ### 0.2
 - Added create class
 - Added more things in sprite class
+- [X] Make an initialization function
+- [ ] Sprite making
+- [ ] Ui making
+- [ ] Camera controls
