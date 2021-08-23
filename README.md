@@ -3,7 +3,7 @@
 
 Todo: <br>
 - [ ] Make different movement functions for different game genres
-- [X] Make an initialization function(Will be improved with time)
+- [X] Make an initialization function
 - [ ] Sprite making
 - [ ] Ui making
 - [ ] Camera controls
