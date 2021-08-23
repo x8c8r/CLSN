@@ -12,6 +12,8 @@ topdown360 = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255])
     moveWPlayer = ?g
     is_pressed = counter(0)
     is_pressed_b = counter(0)
+    let x_grid = x_grid
+    x_grid -= 7
 
     $.add(obj{ 
         OBJ_ID: 1838,
@@ -78,7 +80,7 @@ topdown360 = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255])
     })
     gs.button_a_end().on_triggered(!{ is_pressed -= 1 })
 
-    //This sucks so much someone please figure out a better solution by using math
+    // This sucks so much someone please figure out a better solution by using math
     gs.button_b().on_triggered(!{ is_pressed_b += 1 
         while_loop(() => is_pressed_b == 1, (){
             -> if direc < 16 || direc > 353 {
@@ -134,6 +136,54 @@ topdown360 = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255])
     gs.button_b_end().on_triggered(!{ is_pressed_b -= 1 })
 }
 
+platformer = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255]) {
+    col = ?c
+    col.set(color[0],color[1],color[2])
+    playerG = ?g
+    is_pressed_a = counter(0)
+    is_pressed_b = counter(0)
+    let x_grid = x_grid
+    x_grid -= 7
+
+    $.add(obj{ 
+        OBJ_ID: 211,
+        X: ((x_grid-1)*30)+7.5,
+        Y: (y_grid*30)-7.5, 
+        COLOR: col,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [playerG,lock]
+    }) 
+
+    gs.button_a().on_triggered(!{ is_pressed_a += 1 
+        -> if is_pressed_b == 1 {
+            playerG.move(0, 23, 0.35, EASE_OUT)
+            wait(0.03)
+            playerG.move(0, -23, 0.35, EASE_IN)
+        }
+        -> if is_pressed_b == 0 {
+            while_loop(() => is_pressed_a == 1, (){
+                playerG.move(-1, 0, 0.03)
+            })
+        }
+    })
+    gs.button_a_end().on_triggered(!{ is_pressed_a -= 1 })
+
+    gs.button_b().on_triggered(!{ is_pressed_b += 1 
+        -> if is_pressed_a == 1 {
+            playerG.move(0, 23, 0.35, EASE_OUT)
+            wait(0.03)
+            playerG.move(0, -23, 0.35, EASE_IN)
+        }
+        -> if is_pressed_a == 0 {
+            while_loop(() => is_pressed_b == 1, (){
+                playerG.move(1, 0, 0.03)
+            })
+        }
+    })
+    gs.button_b_end().on_triggered(!{ is_pressed_b -= 1 })
+}
+
 return {
-    topdown360
+    topdown360,
+    platformer
 }
