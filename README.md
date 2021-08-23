@@ -6,6 +6,7 @@ Todo: <br>
 - [X] Make an initialization function(Will be improved with time)
 - [ ] Sprite making
 - [ ] Ui making
+- [ ] Camera controls
 
 Changelog: <br>
 ### 0.1.3
