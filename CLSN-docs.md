@@ -2,12 +2,13 @@
 _Generated using `spwn doc [file name]`_
 ## Info:
 
+- Uses 8 groups
 - Uses 2 groups
 - Uses 0 colors
-- Uses 0 block IDs
+- Uses 4 block IDs
 - Uses 1 item IDs
 
-- Adds 0 objects
+- Adds 24 objects
 # Exports:
  **Type:** `@dictionary` 
 
@@ -47,7 +48,65 @@ _Generated using `spwn doc [file name]`_
 >```spwn
 >() { /* code omitted */ }
 >``` 
->**Type:** `@macro` 
+>**Type:** `@macro`
+>
+## Other values:
+
+## **create**:
+
+> **Type:** `@dictionary` 
+>
+>## **platformer**:
+>
+>> **Value:** 
+>>```spwn
+>>(x_grid: @number, y_grid: @number, color: @array = [255,255,255]) { /* code omitted */ }
+>>``` 
+>>**Type:** `@macro` 
+>>## Arguments:
+>>
+>>| # | name | type | default value | description |
+>>| - | ---- | ---- | ------------- | ----------- |
+>>| 1 | **`x_grid`** | @number | | |
+>>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `color` | @array | `[255,255,255]` | |
+>>
+>
+>## **topdown**:
+>
+>> **Value:** 
+>>```spwn
+>>(x_grid: @number, y_grid: @number, continuousMovement: @bool = true, usePlayerCol: @bool = true, color: @array = [255,255,255]) { /* code omitted */ }
+>>``` 
+>>**Type:** `@macro` 
+>>## Arguments:
+>>
+>>| # | name | type | default value | description |
+>>| - | ---- | ---- | ------------- | ----------- |
+>>| 1 | **`x_grid`** | @number | | |
+>>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `continuousMovement` | @bool | `true` | |
+>>| 4 | `usePlayerCol` | @bool | `true` | |
+>>| 5 | `color` | @array | `[255,255,255]` | |
+>>
+>
+>## **topdown360**:
+>
+>> **Value:** 
+>>```spwn
+>>(x_grid: @number, y_grid: @number, color: @array = [255,255,255]) { /* code omitted */ }
+>>``` 
+>>**Type:** `@macro` 
+>>## Arguments:
+>>
+>>| # | name | type | default value | description |
+>>| - | ---- | ---- | ------------- | ----------- |
+>>| 1 | **`x_grid`** | @number | | |
+>>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `color` | @array | `[255,255,255]` | |
+>>
+>
+
 >`setup_kill needs to be called before kill`
 >
 ## Other values:
@@ -56,6 +115,27 @@ _Generated using `spwn doc [file name]`_
 
 > **Value:** 
 >```spwn
+>{circle: (x_grid: @number, y_grid: @number, color: @array = [255,255,255], useGroup: @bool = true) { /* code omitted */ },square: (x_grid: @number, y_grid: @number, Objcol: @array = [255,255,255], useGroup: @bool = true) { /* code omitted */ }}
+>``` 
+>**Type:** `@dictionary` 
+>
+>## **circle**:
+>
+>> **Value:** 
+>>```spwn
+>>(x_grid: @number, y_grid: @number, color: @array = [255,255,255], useGroup: @bool = true) { /* code omitted */ }
+>>``` 
+>>**Type:** `@macro` 
+>>## Arguments:
+>>
+>>| # | name | type | default value | description |
+>>| - | ---- | ---- | ------------- | ----------- |
+>>| 1 | **`x_grid`** | @number | | |
+>>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `color` | @array | `[255,255,255]` | |
+>>| 4 | `useGroup` | @bool | `true` | |
+>>
+>
 >{square: (x_grid: @number, y_grid: @number, Objcol: @array = [0,0,0]) { /* code omitted */ }}
 >``` 
 >**Type:** `@dictionary` 
@@ -64,6 +144,7 @@ _Generated using `spwn doc [file name]`_
 >
 >> **Value:** 
 >>```spwn
+>>(x_grid: @number, y_grid: @number, Objcol: @array = [255,255,255], useGroup: @bool = true) { /* code omitted */ }
 >>(x_grid: @number, y_grid: @number, Objcol: @array = [0,0,0]) { /* code omitted */ }
 >>``` 
 >>**Type:** `@macro` 
@@ -73,6 +154,8 @@ _Generated using `spwn doc [file name]`_
 >>| - | ---- | ---- | ------------- | ----------- |
 >>| 1 | **`x_grid`** | @number | | |
 >>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `Objcol` | @array | `[255,255,255]` | |
+>>| 4 | `useGroup` | @bool | `true` | |
 >>| 3 | `Objcol` | @array | `[0,0,0]` | |
 >>
 >

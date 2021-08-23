@@ -10,8 +10,8 @@ setup_kill = () {
     })
 }
 
-kill = (spikeG: @group = spikeGroup){
-    -> spikeG.move(-120, 0, 0.1)
+kill = (){
+    -> spikeGroup.move(-120, 0, 0.1)
 }
 
 return {
