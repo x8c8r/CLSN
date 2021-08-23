@@ -53,11 +53,7 @@ _Generated using `spwn doc [file name]`_
 
 ## **create**:
 
-> **Value:** 
->```spwn
->{platformer: (x_grid: @number, y_grid: @number, color: @array = [255,255,255]) { /* code omitted */ },topdown360: (x_grid: @number, y_grid: @number, color: @array = [255,255,255]) { /* code omitted */ }}
->``` 
->**Type:** `@dictionary` 
+> **Type:** `@dictionary` 
 >
 >## **platformer**:
 >
@@ -73,6 +69,24 @@ _Generated using `spwn doc [file name]`_
 >>| 1 | **`x_grid`** | @number | | |
 >>| 2 | **`y_grid`** | @number | | |
 >>| 3 | `color` | @array | `[255,255,255]` | |
+>>
+>
+>## **topdown**:
+>
+>> **Value:** 
+>>```spwn
+>>(x_grid: @number, y_grid: @number, continuousMovement: @bool = true, usePlayerCol: @bool = true, color: @array = [255,255,255]) { /* code omitted */ }
+>>``` 
+>>**Type:** `@macro` 
+>>## Arguments:
+>>
+>>| # | name | type | default value | description |
+>>| - | ---- | ---- | ------------- | ----------- |
+>>| 1 | **`x_grid`** | @number | | |
+>>| 2 | **`y_grid`** | @number | | |
+>>| 3 | `continuousMovement` | @bool | `true` | |
+>>| 4 | `usePlayerCol` | @bool | `true` | |
+>>| 5 | `color` | @array | `[255,255,255]` | |
 >>
 >
 >## **topdown360**:
