@@ -8,7 +8,5 @@ Todo: <br>
 - [ ] Camera Controls
 
 Changelog: <br>
-### 0.1.5
-- Added platformer in Create class
-- Added circle in Sprite class
-- Returns the sprite's group when a sprite function is called
+### 0.1.6
+- Added topdown in Create class
