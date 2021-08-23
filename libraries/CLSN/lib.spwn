@@ -4,8 +4,8 @@ let sprite = import "sprite.spwn"
 let create = import "create_player.spwn"
 let gs = import gamescene
 
-let invisG = 1g
-let lockG = 2g
+invisG = 1g
+lockG = 2g
 
 return {
     init: init,

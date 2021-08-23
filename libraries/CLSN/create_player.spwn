@@ -6,10 +6,12 @@ lock = 2g
 topdown360 = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255]) {
     col = ?c
     col.set(color[0],color[1],color[2])
-    direc = counter(0)
+    direc = counter(1) // Variable is currently not used but may be needed for collision
     playerG = ?g
     collision = ?g
     moveWPlayer = ?g
+    is_pressed = counter(0)
+    is_pressed_b = counter(0)
 
     $.add(obj{ 
         OBJ_ID: 1838,
@@ -66,14 +68,70 @@ topdown360 = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255])
         GROUPS: [arrow, lock, moveWPlayer]
     }) // Rotation arrow
 
-    is_pressed = counter(0)
     gs.button_a().on_triggered(!{ is_pressed += 1 
         while_loop(() => is_pressed == 1, (){
-            arrow.rotate(playerG, -1, 0.005) // Rotates an arrow around a player
-            direc -= 1 // Counter variable for the players direction
+            arrow.rotate(playerG, 3, 0.001) // Rotates an arrow around a player
+            if direc < 361 {
+                direc += 3 // Counter variable for the players direction
+            } else { direc -= 360 }
         })
     })
     gs.button_a_end().on_triggered(!{ is_pressed -= 1 })
+
+    //This sucks so much someone please figure out a better solution by using math
+    gs.button_b().on_triggered(!{ is_pressed_b += 1 
+        while_loop(() => is_pressed_b == 1, (){
+            -> if direc < 16 || direc > 353 {
+                moveWPlayer.move(0, 1, 0.03)
+            } 
+            -> if direc > 15 && direc < 38 {
+                moveWPlayer.move(0.675, 0.925, 0.03)
+            } 
+            -> if direc > 37 && direc < 60 {
+                moveWPlayer.move(0.825, 0.825, 0.03)
+            } 
+            -> if direc > 59 && direc < 82 {
+                moveWPlayer.move(0.925, 0.675, 0.03)
+            } 
+            -> if direc > 81 && direc < 104 {
+                moveWPlayer.move(1, 0, 0.03)
+            } 
+            -> if direc > 103 && direc < 126 {
+                moveWPlayer.move(0.925, -0.675, 0.03)
+            } 
+            -> if direc > 125 && direc < 148 {
+                moveWPlayer.move(0.825, -0.825, 0.03)
+            } 
+            -> if direc > 147 && direc < 170 {
+                moveWPlayer.move(0.675, -0.925, 0.03)
+            } 
+            -> if direc > 169 && direc < 193 {
+                moveWPlayer.move(0, -1, 0.03)
+            } 
+            -> if direc > 192 && direc < 216 {
+                moveWPlayer.move(-0.675, -0.925, 0.03)
+            } 
+            -> if direc > 215 && direc < 239 {
+                moveWPlayer.move(-0.825, -0.825, 0.03)
+            } 
+            -> if direc > 238 && direc < 262 {
+                moveWPlayer.move(-0.925, -0.675, 0.03)
+            } 
+            -> if direc > 261 && direc < 285 {
+                moveWPlayer.move(-1, 0, 0.03)
+            } 
+            -> if direc > 284 && direc < 308 {
+                moveWPlayer.move(-0.925, 0.675, 0.03)
+            } 
+            -> if direc > 307 && direc < 331 {
+                moveWPlayer.move(-0.825, 0.825, 0.03)
+            } 
+            -> if direc > 330 && direc < 354 {
+                moveWPlayer.move(-0.675, 0.925, 0.03)
+            } 
+        })
+    })
+    gs.button_b_end().on_triggered(!{ is_pressed_b -= 1 })
 }
 
 return {
