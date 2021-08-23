@@ -6,8 +6,10 @@ Todo: <br>
 - [X] Make an initialization function(Will be improved with time)
 - [ ] Sprite making
 - [ ] Ui making
+- [ ] Camera Controls
 
 Changelog: <br>
-### 0.1.4
-- Added "Create" Class with player functions (one for now)
-- Tweaked functions to be less input heavy and easier to use
+### 0.1.5
+- Added platformer in Create class
+- Added circle in Sprite class
+- Returns the sprite's group when a sprite function is called
