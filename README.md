@@ -8,5 +8,6 @@ Todo: <br>
 - [ ] Camera Controls
 
 Changelog: <br>
-### 0.1.6
-- Added topdown in Create class
+### 0.2
+- Added create class
+- Added more things in sprite class
