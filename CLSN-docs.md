@@ -3,7 +3,6 @@ _Generated using `spwn doc [file name]`_
 ## Info:
 
 - Uses 8 groups
-- Uses 2 groups
 - Uses 0 colors
 - Uses 4 block IDs
 - Uses 1 item IDs
@@ -33,7 +32,7 @@ _Generated using `spwn doc [file name]`_
 >| 6 | `LINE_RGB` | @array | `[0,0,0]` | |
 >
 
-## **setup\_kill**:
+## **kill**:
 
 > **Value:** 
 >```spwn
@@ -42,13 +41,13 @@ _Generated using `spwn doc [file name]`_
 >**Type:** `@macro` 
 >
 
-## **kill**:
+## **setup\_kill**:
 
 > **Value:** 
 >```spwn
 >() { /* code omitted */ }
 >``` 
->**Type:** `@macro`
+>**Type:** `@macro` 
 >
 ## Other values:
 
@@ -107,10 +106,6 @@ _Generated using `spwn doc [file name]`_
 >>
 >
 
->`setup_kill needs to be called before kill`
->
-## Other values:
-
 ## **sprite**:
 
 > **Value:** 
@@ -136,16 +131,11 @@ _Generated using `spwn doc [file name]`_
 >>| 4 | `useGroup` | @bool | `true` | |
 >>
 >
->{square: (x_grid: @number, y_grid: @number, Objcol: @array = [0,0,0]) { /* code omitted */ }}
->``` 
->**Type:** `@dictionary` 
->
 >## **square**:
 >
 >> **Value:** 
 >>```spwn
 >>(x_grid: @number, y_grid: @number, Objcol: @array = [255,255,255], useGroup: @bool = true) { /* code omitted */ }
->>(x_grid: @number, y_grid: @number, Objcol: @array = [0,0,0]) { /* code omitted */ }
 >>``` 
 >>**Type:** `@macro` 
 >>## Arguments:
@@ -156,6 +146,5 @@ _Generated using `spwn doc [file name]`_
 >>| 2 | **`y_grid`** | @number | | |
 >>| 3 | `Objcol` | @array | `[255,255,255]` | |
 >>| 4 | `useGroup` | @bool | `true` | |
->>| 3 | `Objcol` | @array | `[0,0,0]` | |
 >>
 >
