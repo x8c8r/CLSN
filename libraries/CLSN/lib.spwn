@@ -8,9 +8,9 @@ invisG = 1g
 lockG = 2g
 
 return {
-    init: init,
-    sprite: sprite,
+    init,
+    sprite,
     kill: kill.kill,
     setup_kill: kill.setup_kill,
-    create: create
+    create
 }
