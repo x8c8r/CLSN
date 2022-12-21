@@ -1,0 +1,291 @@
+extract obj_props
+gs = import gamescene
+invis = 1g
+lock = 2g
+
+topdown360 = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255]) {
+    col = ?c
+    col.set(color[0],color[1],color[2])
+    direc = counter(1) // Variable is currently not used but may be needed for collision
+    playerG = ?g
+    collision = ?g
+    moveWPlayer = ?g
+    is_pressed = counter(0)
+    is_pressed_b = counter(0)
+    let x_grid = x_grid
+    x_grid -= 7
+
+    $.add(obj{ 
+        OBJ_ID: 1838,
+        X: ((x_grid-1)*30)+7.5,
+        Y: (y_grid*30)-7.5, 
+        COLOR: col,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [collision, lock, moveWPlayer]
+    }) // Player character
+    $.add(obj{ 
+        OBJ_ID: 1838,
+        X: ((x_grid-1)*30)+7.5,
+        Y: ((y_grid-1)*30)+7.5, 
+        COLOR: col,
+        ROTATION: 270,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [collision, lock, moveWPlayer]
+    }) // Player character 
+    $.add(obj{ 
+        OBJ_ID: 1838,
+        X: (x_grid*30)-7.5,
+        Y: ((y_grid-1)*30)+7.5, 
+        COLOR: col,
+        ROTATION: 180,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [collision, lock, moveWPlayer]
+    }) // Player character 
+    $.add(obj{ 
+        OBJ_ID: 1838,
+        X: (x_grid*30)-7.5,
+        Y: (y_grid*30)-7.5, 
+        COLOR: col,
+        ROTATION: 90,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [collision, lock, moveWPlayer]
+    }) // Player character  
+    
+    $.add(obj{ 
+        OBJ_ID: 1764,
+        X: ((x_grid-1)*30)+15,
+        Y: ((y_grid-1)*30)+15, 
+        GROUPS: [playerG, collision, lock, moveWPlayer, invis]
+    }) // Player rotation
+
+    arrow = ?g
+    arrowCol = ?c
+    $.add(obj {
+        OBJ_ID: 1603,
+        X: ((x_grid-1)*30)+15,
+        Y: ((y_grid)*30)+15,  
+        COLOR: arrowCol,
+        ROTATION: 270,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [arrow, lock, moveWPlayer]
+    }) // Rotation arrow
+
+    gs.button_a().on_triggered(!{ is_pressed += 1 
+        while_loop(() => is_pressed == 1, (){
+            arrow.rotate(playerG, 3, 0.001) // Rotates an arrow around a player
+            if direc < 361 {
+                direc += 3 // Counter variable for the players direction
+            } else { direc -= 360 }
+        })
+    })
+    gs.button_a_end().on_triggered(!{ is_pressed -= 1 })
+
+    // This sucks so much someone please figure out a better solution by using math
+    gs.button_b().on_triggered(!{ is_pressed_b += 1 
+        while_loop(() => is_pressed_b == 1, (){
+            -> if direc < 16 || direc > 353 {
+                moveWPlayer.move(0, 1, 0.03)
+            } 
+            -> if direc > 15 && direc < 38 {
+                moveWPlayer.move(0.675, 0.925, 0.03)
+            } 
+            -> if direc > 37 && direc < 60 {
+                moveWPlayer.move(0.825, 0.825, 0.03)
+            } 
+            -> if direc > 59 && direc < 82 {
+                moveWPlayer.move(0.925, 0.675, 0.03)
+            } 
+            -> if direc > 81 && direc < 104 {
+                moveWPlayer.move(1, 0, 0.03)
+            } 
+            -> if direc > 103 && direc < 126 {
+                moveWPlayer.move(0.925, -0.675, 0.03)
+            } 
+            -> if direc > 125 && direc < 148 {
+                moveWPlayer.move(0.825, -0.825, 0.03)
+            } 
+            -> if direc > 147 && direc < 170 {
+                moveWPlayer.move(0.675, -0.925, 0.03)
+            } 
+            -> if direc > 169 && direc < 193 {
+                moveWPlayer.move(0, -1, 0.03)
+            } 
+            -> if direc > 192 && direc < 216 {
+                moveWPlayer.move(-0.675, -0.925, 0.03)
+            } 
+            -> if direc > 215 && direc < 239 {
+                moveWPlayer.move(-0.825, -0.825, 0.03)
+            } 
+            -> if direc > 238 && direc < 262 {
+                moveWPlayer.move(-0.925, -0.675, 0.03)
+            } 
+            -> if direc > 261 && direc < 285 {
+                moveWPlayer.move(-1, 0, 0.03)
+            } 
+            -> if direc > 284 && direc < 308 {
+                moveWPlayer.move(-0.925, 0.675, 0.03)
+            } 
+            -> if direc > 307 && direc < 331 {
+                moveWPlayer.move(-0.825, 0.825, 0.03)
+            } 
+            -> if direc > 330 && direc < 354 {
+                moveWPlayer.move(-0.675, 0.925, 0.03)
+            } 
+        })
+    })
+    gs.button_b_end().on_triggered(!{ is_pressed_b -= 1 })
+}
+
+topdown = (x_grid: @number, y_grid: @number, continuousMovement: @bool = true, usePlayerCol: @bool = true, color: @array = [255, 255, 255]){
+    col = ?c
+    col.set(color[0],color[1],color[2])
+    playerG = ?g
+    arrow = ?g
+    is_pressed_b = counter(0)
+    direc = counter(1)
+    let x_grid = x_grid
+    x_grid -= 8
+    let y_grid = y_grid
+    y_grid -= 1
+
+    // Player
+    if usePlayerCol == true {
+        $.add(obj{
+            OBJ_ID: 211,
+            X: (x_grid*30)+15,
+            Y: (y_grid*30)+15,
+            PLAYER_COLOR_1: true,
+            DONT_FADE: true, DONT_ENTER: true,
+            GROUPS: [lock, playerG] 
+        })
+    }
+    else {
+        $.add(obj{
+            OBJ_ID: 211,
+            X: (x_grid*30)+15,
+            Y: (y_grid*30)+15,
+            COLOUR: col,
+            DONT_FADE: true, DONT_ENTER: true,
+            GROUPS: [lock, playerG] 
+        })
+    }
+    // Arrow
+    $.add(obj{ 
+        OBJ_ID: 1603,
+        X: (x_grid*30)+15,
+        Y: (y_grid*30)+45,
+        ROTATION: 270,
+        DONT_FADE: true, DONT_ENTER: true,
+        GROUPS: [lock, playerG, arrow] 
+    })
+
+    gs.button_a().on_triggered(!{  
+        -> if direc == 1 {
+            arrow.move(10, -10, 0.001)
+            arrow.rotate(arrow, 90)
+            direc += 1
+        } 
+        -> if direc == 2 {
+            arrow.move(-10, -10, 0.001)
+            arrow.rotate(arrow, 90)
+            direc += 1
+        } 
+        -> if direc == 3 {
+            arrow.move(-10, 10, 0.001)
+            arrow.rotate(arrow, 90)
+            direc += 1
+        } 
+        -> if direc == 4 {
+            arrow.move(10, 10, 0.001)
+            arrow.rotate(arrow, 90)
+            direc -= 3
+        }
+    })
+
+    gs.button_b().on_triggered(!{ is_pressed_b += 1 
+        if continuousMovement == true {
+            while_loop(() => is_pressed_b == 1, (){
+                -> if direc == 2 {
+                    -> playerG.move(2, 0, 0.03)
+                } 
+                -> if direc == 3 {
+                    -> playerG.move(0, -2, 0.03)
+                } 
+                -> if direc == 4 {
+                    -> playerG.move(-2, 0, 0.03)
+                } 
+                -> if direc == 1 {
+                    -> playerG.move(0, 2, 0.03)
+                } 
+            })
+        } 
+        if continuousMovement == false {
+            -> if direc == 2 {
+                -> playerG.move(10, 0, 0.2)
+            } 
+            -> if direc == 3 {
+                -> playerG.move(0, -10, 0.2)
+            } 
+            -> if direc == 4 {
+                -> playerG.move(-10, 0, 0.2)
+            } 
+            -> if direc == 1 {
+                -> playerG.move(0, 10, 0.2)
+            } 
+        }
+    })
+    gs.button_b_end().on_triggered(!{ is_pressed_b -= 1 })
+}
+
+platformer = (x_grid: @number, y_grid: @number, color: @array = [255, 255, 255]) {
+    col = ?c
+    col.set(color[0],color[1],color[2])
+    playerG = ?g
+    is_pressed_a = counter(0)
+    is_pressed_b = counter(0)
+    let x_grid = x_grid
+    x_grid -= 7
+
+    $.add(obj{ 
+        OBJ_ID: 211,
+        X: ((x_grid-1)*30)+7.5,
+        Y: (y_grid*30)-7.5, 
+        COLOR: col,
+        DONT_FADE: true, DONT_ENTER: true, 
+        GROUPS: [playerG,lock]
+    }) 
+
+    gs.button_a().on_triggered(!{ is_pressed_a += 1 
+        -> if is_pressed_b == 1 {
+            playerG.move(0, 23, 0.35, EASE_OUT)
+            wait(0.03)
+            playerG.move(0, -23, 0.35, EASE_IN)
+        }
+        -> if is_pressed_b == 0 {
+            while_loop(() => is_pressed_a == 1, (){
+                playerG.move(-1, 0, 0.03)
+            })
+        }
+    })
+    gs.button_a_end().on_triggered(!{ is_pressed_a -= 1 })
+
+    gs.button_b().on_triggered(!{ is_pressed_b += 1 
+        -> if is_pressed_a == 1 {
+            playerG.move(0, 23, 0.35, EASE_OUT)
+            wait(0.03)
+            playerG.move(0, -23, 0.35, EASE_IN)
+        }
+        -> if is_pressed_a == 0 {
+            while_loop(() => is_pressed_b == 1, (){
+                playerG.move(1, 0, 0.03)
+            })
+        }
+    })
+    gs.button_b_end().on_triggered(!{ is_pressed_b -= 1 })
+}
+
+return {
+    topdown360,
+    topdown,
+    platformer
+}
